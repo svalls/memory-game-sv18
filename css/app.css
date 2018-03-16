@@ -1,0 +1,157 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+#starOne, #starTwo, #starThree {
+    color: #aa7ecd;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .cardFrame {
+    width: 125px;
+    height: 125px;
+}
+
+.cardFrame .cardClosed {
+    background: #2e3d49; width: 125px; height: 125px; border-radius: 8px;
+    position: absolute;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    transform: rotateY( 0deg );
+    backface-visibility: hidden;
+    transition: transform .4s linear 0s;
+}
+
+.cardFrame .cardOpen {
+    background: #02ccba; width: 125px; height: 125px; border-radius: 8px;
+    position: absolute;
+    font-size: 40px; color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 125px;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);  
+    transform: rotateY( 180deg );
+    backface-visibility: hidden;
+    transition: transform .4s linear 0s;
+}
+
+.cardFrame .cardPurple {
+    background: #aa7ecd; width: 125px; height: 125px; border-radius: 8px;
+    position: absolute;
+    font-size: 40px; color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 125px;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);  
+/*    transform: rotateY( 180deg );
+    backface-visibility: hidden;
+    transition: transform .4s linear 0s;*/
+}
+
+/*
+ * CARD LOCK
+ */
+
+ .deck .cardLock {
+    width: 125px;
+    height: 125px;
+}
+
+/*
+ * FLIP EFFECT
+ */
+
+.flipped .cardClosed {
+transform: rotateY( -180deg );
+}
+
+.flipped .cardOpen {
+transform: rotateY( 0deg );
+}
+
+/*
+ * TIMER
+ */
+
+#time {
+    text-align: center;
+    width: 345px;
+    background: #aa7ecd;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
